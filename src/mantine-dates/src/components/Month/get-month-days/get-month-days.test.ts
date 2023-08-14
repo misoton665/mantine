@@ -45,4 +45,24 @@ describe('@mantine/dates/get-month-days', () => {
       new Date(2021, 4, 1)
     );
   });
+  it('returns outside days for given month, minimum number of weeks - 6', () => {
+    const monthDays = getMonthDays(new Date(2021, 3, 2), undefined, 6);
+
+    expect(monthDays).toHaveLength(6);
+    expect(monthDays[0][0]).toStrictEqual(new Date(2021, 2, 29));
+    expect(monthDays[0][1]).toStrictEqual(new Date(2021, 2, 30));
+    expect(monthDays[monthDays.length - 1][monthDays[0].length - 1]).toStrictEqual(
+      new Date(2021, 4, 9)
+    );
+  });
+  it('returns outside days for given month, first day of the week - sunday, minimum number of weeks - 6', () => {
+    const monthDays = getMonthDays(new Date(2021, 3, 2), 0, 6);
+
+    expect(monthDays).toHaveLength(6);
+    expect(monthDays[0][0]).toStrictEqual(new Date(2021, 2, 28));
+    expect(monthDays[0][1]).toStrictEqual(new Date(2021, 2, 29));
+    expect(monthDays[monthDays.length - 1][monthDays[0].length - 1]).toStrictEqual(
+      new Date(2021, 4, 8)
+    );
+  });
 });

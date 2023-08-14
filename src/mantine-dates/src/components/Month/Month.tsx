@@ -64,6 +64,9 @@ export interface MonthSettings {
   /** Maximum possible date */
   maxDate?: Date;
 
+  /** Minimum number of weeks */
+  minNumberOfWeeks?: number;
+
   /** Controls day value rendering */
   renderDay?(date: Date): React.ReactNode;
 
@@ -118,6 +121,7 @@ export const Month = forwardRef<HTMLTableElement, MonthProps>((props, ref) => {
     excludeDate,
     minDate,
     maxDate,
+    minNumberOfWeeks,
     renderDay,
     hideOutsideDates,
     hideWeekdays,
@@ -155,7 +159,7 @@ export const Month = forwardRef<HTMLTableElement, MonthProps>((props, ref) => {
     size,
   };
 
-  const dates = getMonthDays(month, ctx.getFirstDayOfWeek(firstDayOfWeek));
+  const dates = getMonthDays(month, ctx.getFirstDayOfWeek(firstDayOfWeek), minNumberOfWeeks);
 
   const dateInTabOrder = getDateInTabOrder(
     dates,

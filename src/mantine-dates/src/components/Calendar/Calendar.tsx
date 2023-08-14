@@ -168,6 +168,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
     weekendDays,
     getDayProps,
     excludeDate,
+    minNumberOfWeeks,
     renderDay,
     hideOutsideDates,
     hideWeekdays,
@@ -299,6 +300,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>((props, ref) =
           weekendDays={weekendDays}
           getDayProps={getDayProps}
           excludeDate={excludeDate}
+          minNumberOfWeeks={minNumberOfWeeks}
           renderDay={renderDay}
           hideOutsideDates={hideOutsideDates}
           hideWeekdays={hideWeekdays}

@@ -43,6 +43,7 @@ export const MonthLevelGroup = forwardRef<HTMLDivElement, MonthLevelGroupProps>(
     excludeDate,
     minDate,
     maxDate,
+    minNumberOfWeeks,
     renderDay,
     hideOutsideDates,
     hideWeekdays,
@@ -139,6 +140,7 @@ export const MonthLevelGroup = forwardRef<HTMLDivElement, MonthLevelGroupProps>(
           excludeDate={excludeDate}
           minDate={minDate}
           maxDate={maxDate}
+          minNumberOfWeeks={minNumberOfWeeks}
           renderDay={renderDay}
           hideOutsideDates={hideOutsideDates}
           hideWeekdays={hideWeekdays}
